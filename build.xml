@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<project default="Clock">
+
+	<property name="src" location="src" />
+	<property name="output" location="bin" />
+	<property name="meta" location="META-INF" />
+	
+    <target name="Clock" depends="compile, archive">
+        <echo>
+            Building the .jar file.
+        </echo>
+    </target>
+  
+    <target name="compile">    	
+        <javac srcdir="${src}" destdir="${output}" target="1.5" />
+    </target>
+	
+	 <target name="archive">
+	 	<echo>${output}</echo>
+	        <jar destfile="clock.jar" basedir="${output}" includes="" filesonly="false">
+	        	<manifest>
+	        		<attribute name="Main-Class" value="org.dcs.system.utils.Clock"/>
+	        	 </manifest>
+	        </jar>	 	
+	  </target>
+
+</project>
